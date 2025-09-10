@@ -1,0 +1,6 @@
+*.swo
+*.swp
+dist-newstyle/
+AOC_COOKIE
+*/*input*.txt
+LOG
