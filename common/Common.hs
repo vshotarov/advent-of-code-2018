@@ -12,12 +12,13 @@ module Common ( readInput
               , assert
               , doAssert
               , mapTuple
+              , pairs
               ) where
 
 import System.Environment (getArgs, getProgName)
 import System.Directory (doesFileExist)
 import qualified Data.Map as M (Map, (!), insert) 
-import Data.List (sortBy, isPrefixOf)
+import Data.List (sortBy, isPrefixOf, tails)
 
 readInput :: IO String
 readInput = do
@@ -103,3 +104,6 @@ doAssert True _    = return ()
 
 mapTuple :: (a -> b) -> (a, a) -> (b, b)
 mapTuple f (a1, a2) = (f a1, f a2)
+
+pairs :: [a] -> [(a,a)]
+pairs xs = [(a,b) | (a:bs) <- tails xs, b <- bs]
