@@ -5,7 +5,7 @@ author:             Vasil Shotarov
 maintainer:         vshotarov@gmail.com
 
 library Common
-    exposed-modules:  Common, Vec
+    exposed-modules:  CircularList, Common, Vec
     build-depends:    base
                      ,directory
                      ,containers
@@ -137,6 +137,22 @@ executable day08
     build-depends:    base
                      ,Common
     hs-source-dirs:   day08
+    default-language: Haskell2010
+    ghc-options:      -Wall
+                      -Wcompat
+                      -Widentities
+                      -Wincomplete-uni-patterns
+                      -Wincomplete-record-updates
+                      -Wredundant-constraints
+                      -Wpartial-fields
+                      -Wunused-packages
+
+executable day09
+    main-is:          Main.hs
+    build-depends:    base
+                     ,Common
+                     ,containers
+    hs-source-dirs:   day09
     default-language: Haskell2010
     ghc-options:      -Wall
                       -Wcompat
