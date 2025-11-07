@@ -13,6 +13,7 @@ module Common ( readInput
               , doAssert
               , mapTuple
               , pairs
+              , takeUntil
               ) where
 
 import System.Environment (getArgs, getProgName)
@@ -107,3 +108,9 @@ mapTuple f (a1, a2) = (f a1, f a2)
 
 pairs :: [a] -> [(a,a)]
 pairs xs = [(a,b) | (a:bs) <- tails xs, b <- bs]
+
+takeUntil :: (a -> Bool) -> [a] -> [a]
+takeUntil _ [] = []
+takeUntil cond (x:xs)
+  | cond x = [x]
+  | otherwise = x:(takeUntil cond xs)
